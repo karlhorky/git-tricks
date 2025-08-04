@@ -6,13 +6,13 @@ A collection of useful Git tricks
 
 If two Git branches:
 
-1. include commit ranges with some common cherry-picked commits but some different commits
+1. share some cherry-picked commits but also differ
 2. are based on different base branches
 
-...it can be helpful to generate a diff as if they were to land on the same target (eg. `main`). Using synthetic trees,shared patches cancel out, so the output highlights only what's unique to each range:
+...it can be useful to generate a diff as if they were to land on the same target (eg. `main`). Using synthetic trees with [`git merge-tree`](https://git-scm.com/docs/git-merge-tree) (Git >= 2.38), shared patches cancel out, so the output highlights only what's unique to each range:
 
 ```bash
-# compare_changesets: compare two change-sets on a common target (Git ≥ 2.38)
+# compare_changesets: compare two change-sets on a common target (Git >= 2.38)
 # ----------------------------------------------------------------------------
 # API:
 #   compare_changesets <TARGET> <BASE_A> <TIP_A> <BASE_B> <TIP_B>
