@@ -9,7 +9,9 @@ If two Git branches:
 1. share some cherry-picked commits but also differ
 2. are based on different base branches
 
-...it can be useful to generate a diff as if they were to land on the same target (eg. `main`). Using synthetic trees with [`git merge-tree`](https://git-scm.com/docs/git-merge-tree) (Git >= 2.38), shared patches cancel out, so the output highlights only what's unique to each range:
+...it can be useful to generate a diff as if they were to land on the same target (eg. `main`). Using synthetic trees with [`git merge-tree`](https://git-scm.com/docs/git-merge-tree) (Git >= 2.38), shared patches cancel out, so the output highlights only what's unique to each range.
+
+Add the following function to your `.zshrc`, `.bash_profile`, `.bashrc`, etc:
 
 ```bash
 # compare_changesets: compare two change-sets on a common target (Git >= 2.38)
